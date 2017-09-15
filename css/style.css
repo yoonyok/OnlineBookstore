@@ -36,9 +36,18 @@ body {
 }
 
 #navigationMenu {
+    display: flex;
+    flex-direction: column;
     width: 250px;
     border: dashed;
     margin-right: 20px;
+}
+
+#menu {
+    border: dashed;
+    height: 60px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 #productList {
