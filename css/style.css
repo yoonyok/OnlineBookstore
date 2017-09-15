@@ -48,6 +48,8 @@ body {
     height: 60px;
     margin-bottom: 20px;
     text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
 }
 
 #productList {
