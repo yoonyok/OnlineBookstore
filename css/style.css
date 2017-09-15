@@ -53,8 +53,17 @@ body {
 }
 
 #productList {
+    display: flex;
+    flex-wrap: wrap;
     width: 650px;
     border: dashed;
+}
+
+.product {
+    width: 180px;
+    height: 210px;
+    border: dashed;
+    margin: 3px;
 }
 
 #footer {
