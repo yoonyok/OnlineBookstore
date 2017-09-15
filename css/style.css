@@ -1,3 +1,56 @@
-.Container {
-    background: red;
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    width: 1000px;
+    border: dashed;
+}
+
+#header {
+    display: flex;
+    margin-top: 30px;
+    height: 260px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#logo {
+    width: 250px;
+    border: dashed;
+    margin-right: 20px;
+}
+
+#welcomeBanner {
+    width: 650px;
+    border: dashed;
+}
+
+#mainContent {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 1250px;
+}
+
+#navigationMenu {
+    width: 250px;
+    border: dashed;
+    margin-right: 20px;
+}
+
+#productList {
+    width: 650px;
+    border: dashed;
+}
+
+#footer {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    border: dashed;
+    height: 140px;
 }
