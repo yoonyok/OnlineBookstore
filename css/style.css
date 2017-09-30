@@ -51,6 +51,20 @@ img {
     margin-right: 20px;
 }
 
+#showCartContent {
+    height: 90px;
+}
+
+input#cart {
+    background: url("../images/showCart.png") no-repeat;
+    background-size:contain;
+    cursor: pointer;
+    width: 90px;
+    height:70px;
+    border:none;
+    margin-left:900px;
+}
+
 .menu {
     height: 60px;
     margin-bottom: 20px;
@@ -131,6 +145,33 @@ img {
     text-align: center;       /* puts text in centre of div */
     vertical-align: middle;   /* puts text in centre of div */
     line-height: 30px;        /* puts text in centre of div */
+}
+
+.button {
+    position: absolute;
+    bottom: 70px;  
+}
+
+.addButton {
+    position: absolute;
+    left: 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size:13px;
+    width: 60px;
+    height: 30px;
+}
+
+.removeButton {
+    position: absolute;
+    left: 90px;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    font-size:13px;
+    width: 60px;
+    height: 30px;
 }
 
 .imageLabel {
