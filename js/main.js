@@ -14,7 +14,7 @@ var productsNameList = [
 ];
 var cart = {};
 var products = {};
-var inactiveTime = 0;
+var inactiveTime = 0;  // in seconds
 var alertUserTimerId;
 var trackInactiveTimeId;
 
@@ -64,9 +64,19 @@ function removeFromCart(productName) {
     }
 }
 
-// show user the current cart
+// show user the current items in the cart
 function showCart() {
-    window.alert(cart);
+    var currentCart='';
+    for (var propName in cart) {
+        var propValue = cart[propName];
+        var string = propName + " : " + propValue + "\n";
+        currentCart += string;
+    }
+    if (currentCart) {
+        window.alert(currentCart);
+    } else {
+        window.alert('empty cart');
+    }
 }
 
 function alertUser() {
@@ -81,7 +91,7 @@ function trackInactiveTime() {
 }
 
 function startTimers() {
-    // alertUserTimerId = setInterval(alertUser, 30000);
+    alertUserTimerId = setInterval(alertUser, 30000);
     trackInactiveTimeId = setInterval(trackInactiveTime, 1000);
 }
 
