@@ -16,8 +16,16 @@
     </div>
 </div>
 <div id="showCartContent">
-        <input type="submit" id="cart" value="" alt="cart">
+    <div id="cart" onclick="showCart()">
 </div>
+
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="cartContent"></div>
+    </div>
+</div>
+
 <div id="mainContent">
     <div id="navigationMenu">
         <div class="menu">
@@ -51,14 +59,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('Box1')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('Box1')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div>
             </div>
             <div class="productName">
@@ -73,14 +81,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('Box2')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('Box2')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div>             
             </div>
             <div class="productName">
@@ -95,14 +103,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('Clothes1')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('Clothes1')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div> 
             </div>
             <div class="productName">
@@ -117,14 +125,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('Clothes2')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('Clothes2')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div> 
             </div>
             <div class="productName">
@@ -139,14 +147,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('Jeans')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('Jeans')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div> 
             </div>
             <div class="productName">
@@ -161,14 +169,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('Keyboard')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('Keyboard')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div> 
             </div>
             <div class="productName">
@@ -183,14 +191,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('KeyboardCombo')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('KeyboardCombo')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div>             
             </div>
             <div class="productName">
@@ -205,14 +213,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('Mice')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('Mice')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div>             
             </div>
             <div class="productName">
@@ -227,14 +235,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('PC1')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('PC1')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div>             
             </div>
             <div class="productName">
@@ -249,14 +257,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('PC2')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('PC2')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div>                 
             </div>
             <div class="productName">
@@ -271,14 +279,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('PC3')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('PC3')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div>             
             </div>
             <div class="productName">
@@ -293,14 +301,14 @@
                 </div>
                 <div class="overlayCart">
                     <img src="images/cart.png">
-                    <span class="button">
-                        <button class="addButton">
+                    <div class="button">
+                        <button class="addButton" onclick="addToCart('Tent')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton">
+                        <button class="removeButton" onclick="removeFromCart('Tent')">
                             <div class="text">Remove</div>
                         </button>
-                    </span>
+                    </div>
                 </div>             
             </div>
             <div class="productName">

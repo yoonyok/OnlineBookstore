@@ -14,7 +14,7 @@ var productsNameList = [
 ];
 var cart = {};
 var products = {};
-var inactiveTime = 0;  // in seconds
+var inactiveTime = 0;  // users inactive time in seconds
 var alertUserTimerId;
 var trackInactiveTimeId;
 
@@ -66,17 +66,33 @@ function removeFromCart(productName) {
 
 // show user the current items in the cart
 function showCart() {
+    // show the modal
+    document.getElementById('cartModal').style.display= "block";
     var currentCart='';
     for (var propName in cart) {
         var propValue = cart[propName];
         var string = propName + " : " + propValue + "\n";
         currentCart += string;
     }
+
+    // insert content into modal
+    var node = document.getElementById('cartContent');
+    var newNode = document.createElement('p');
+    newNode.setAttribute('id', 'cartInfo');
     if (currentCart) {
-        window.alert(currentCart);
+        newNode.appendChild(document.createTextNode(currentCart));
     } else {
-        window.alert('empty cart');
+        newNode.appendChild(document.createTextNode('Your cart is empty'));
     }
+    node.appendChild(newNode);
+}
+
+// close the modal on x click, and remove the children
+function closeModal() {
+    document.getElementById('cartModal').style.display= "none";
+    var parent = document.getElementById('cartContent');
+    var child = document.getElementById('cartInfo');
+    parent.removeChild(child);
 }
 
 function alertUser() {
