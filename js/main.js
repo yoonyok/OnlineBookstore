@@ -67,33 +67,39 @@ function removeFromCart(productName) {
 // show user the current items in the cart
 function showCart() {
     // show the modal
-    document.getElementById('cartModal').style.display= "block";
-    var currentCart='';
+    // document.getElementById('cartModal').style.display= "block";
+    var currentCart = '';
     for (var propName in cart) {
         var propValue = cart[propName];
         var string = propName + " : " + propValue + "\n";
         currentCart += string;
     }
 
-    // insert content into modal
-    var node = document.getElementById('cartContent');
-    var newNode = document.createElement('p');
-    newNode.setAttribute('id', 'cartInfo');
     if (currentCart) {
-        newNode.appendChild(document.createTextNode(currentCart));
+        window.alert(currentCart);
     } else {
-        newNode.appendChild(document.createTextNode('Your cart is empty'));
+        window.alert("Your cart is empty")
     }
-    node.appendChild(newNode);
+
+    // insert content into modal
+    // var node = document.getElementById('cartContent');
+    // var newNode = document.createElement('p');
+    // newNode.setAttribute('id', 'cartInfo');
+    // if (currentCart) {
+    //     newNode.appendChild(document.createTextNode(currentCart));
+    // } else {
+    //     newNode.appendChild(document.createTextNode('Your cart is empty'));
+    // }
+    // node.appendChild(newNode);
 }
 
 // close the modal on x click, and remove the children
-function closeModal() {
-    document.getElementById('cartModal').style.display= "none";
-    var parent = document.getElementById('cartContent');
-    var child = document.getElementById('cartInfo');
-    parent.removeChild(child);
-}
+// function closeModal() {
+//     document.getElementById('cartModal').style.display= "none";
+//     var parent = document.getElementById('cartContent');
+//     var child = document.getElementById('cartInfo');
+//     parent.removeChild(child);
+// }
 
 function alertUser() {
     window.alert("Hey there! Are you still planning to buy something?");
