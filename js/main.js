@@ -15,6 +15,7 @@ var productsNameList = [
 var cart = {};
 var products = {};
 var inactiveTime = 0;  // users inactive time in seconds
+var alertTime = 30000;
 var alertUserTimerId;
 var trackInactiveTimeId;
 
@@ -34,15 +35,19 @@ for (var i = 0, len = productsNameList.length; i < len; i++) {
 function addToCart(productName) {
     // reset alert timer and inactive time
     clearInterval(alertUserTimerId);
-    alertUserTimerId = setInterval(alertUser, 30000);
+    alertUserTimerId = setInterval(alertUser, alertTime);
     inactiveTime = 0;
 
-    if (cart[productName]) {
-        cart[productName]++;
+    if (products[productName] !== 0) {
+        if (cart[productName]) {
+            cart[productName]++;
+        } else {
+            cart[productName] = 1;
+        }
+        products[productName]--;
     } else {
-        cart[productName] = 1;
+        window.alert(productName + " is sold out");
     }
-    products[productName]--;
 }
 
 // Remove the given product from cart and increase its supply value by 1
@@ -50,7 +55,7 @@ function addToCart(productName) {
 function removeFromCart(productName) {
     // reset alert timer and inactive time
     clearInterval(alertUserTimerId);
-    alertUserTimerId = setInterval(alertUser, 30000);
+    alertUserTimerId = setInterval(alertUser, alertTime);
     inactiveTime = 0;
 
     if (cart[productName]) {
@@ -66,8 +71,6 @@ function removeFromCart(productName) {
 
 // show user the current items in the cart
 function showCart() {
-    // show the modal
-    // document.getElementById('cartModal').style.display= "block";
     var currentCart = '';
     for (var propName in cart) {
         var propValue = cart[propName];
@@ -80,31 +83,12 @@ function showCart() {
     } else {
         window.alert("Your cart is empty")
     }
-
-    // insert content into modal
-    // var node = document.getElementById('cartContent');
-    // var newNode = document.createElement('p');
-    // newNode.setAttribute('id', 'cartInfo');
-    // if (currentCart) {
-    //     newNode.appendChild(document.createTextNode(currentCart));
-    // } else {
-    //     newNode.appendChild(document.createTextNode('Your cart is empty'));
-    // }
-    // node.appendChild(newNode);
 }
-
-// close the modal on x click, and remove the children
-// function closeModal() {
-//     document.getElementById('cartModal').style.display= "none";
-//     var parent = document.getElementById('cartContent');
-//     var child = document.getElementById('cartInfo');
-//     parent.removeChild(child);
-// }
 
 function alertUser() {
     window.alert("Hey there! Are you still planning to buy something?");
     clearInterval(alertUserTimerId);
-    alertUserTimerId = setInterval(alertUser, 30000);
+    alertUserTimerId = setInterval(alertUser, alertTime);
     inactiveTime = 0;
 }
 
@@ -113,7 +97,7 @@ function trackInactiveTime() {
 }
 
 function startTimers() {
-    alertUserTimerId = setInterval(alertUser, 30000);
+    alertUserTimerId = setInterval(alertUser, alertTime);
     trackInactiveTimeId = setInterval(trackInactiveTime, 1000);
 }
 
