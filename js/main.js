@@ -34,9 +34,7 @@ for (var i = 0, len = productsNameList.length; i < len; i++) {
 // Adds a given product into the cart and decrease its supply value by 1
 function addToCart(productName) {
     // reset alert timer and inactive time
-    clearInterval(alertUserTimerId);
-    alertUserTimerId = setInterval(alertUser, alertTime);
-    inactiveTime = 0;
+    restartTimers();
 
     if (products[productName] !== 0) {
         if (cart[productName]) {
@@ -54,9 +52,7 @@ function addToCart(productName) {
 // if the item does not exist in cart, alert user
 function removeFromCart(productName) {
     // reset alert timer and inactive time
-    clearInterval(alertUserTimerId);
-    alertUserTimerId = setInterval(alertUser, alertTime);
-    inactiveTime = 0;
+    restartTimers();
 
     if (cart[productName]) {
         cart[productName]--;
@@ -99,6 +95,12 @@ function trackInactiveTime() {
 function startTimers() {
     alertUserTimerId = setInterval(alertUser, alertTime);
     trackInactiveTimeId = setInterval(trackInactiveTime, 1000);
+}
+
+function restartTimers() {
+    clearInterval(alertUserTimerId);
+    alertUserTimerId = setInterval(alertUser, alertTime);
+    inactiveTime = 0;
 }
 
 window.onload = startTimers;
