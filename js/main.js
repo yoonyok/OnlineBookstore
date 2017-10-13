@@ -91,6 +91,7 @@ function removeFromCart(productName) {
 
 // show user the current items in the cart
 function showCart() {
+    restartTimers();
     var currentCart = '';
     for (var propName in cart) {
         var propValue = cart[propName];
@@ -107,13 +108,21 @@ function showCart() {
 
 function alertUser() {
     window.alert("Hey there! Are you still planning to buy something?");
-    clearInterval(alertUserTimerId);
-    alertUserTimerId = setInterval(alertUser, alertTime);
-    inactiveTime = 0;
+    restartTimers();
 }
 
 function trackInactiveTime() {
     inactiveTime++;
+
+    // update inactive time display in footer
+    var node = document.getElementById('inactiveTime');
+    var newNode = document.createElement('p');
+    newNode.setAttribute('id', 'liveInactiveTime');
+    newNode.appendChild(document.createTextNode('Inactive time: ' + inactiveTime));
+    if (document.getElementById('liveInactiveTime')) {
+        node.removeChild(document.getElementById('liveInactiveTime'));
+    }
+    node.appendChild(newNode);
 }
 
 function startTimers() {
