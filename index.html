@@ -17,7 +17,8 @@
     </div>
 </div>
 <div id="showCartContent">
-    <div id="cart" onclick="showCart()">Cart</div>
+    <div id="cart" onclick="showCart()"></div>
+    <button id="cartButton"><p id="cartTotal">Cart ($0)</p></button>
 </div>
 
 <!--<div id="cartModal" class="modal">-->
@@ -321,7 +322,9 @@
 </body>
 
 <footer id="footer">
-    <div id="inactiveTime"> </div>
+    <div id="inactiveTime">
+        <p id="liveInactiveTime">Inactive time: 0</p>
+    </div>
     <img src="images/footer.png" alt="footer">
 </footer>
 </html>

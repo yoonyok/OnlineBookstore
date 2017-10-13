@@ -65,6 +65,11 @@ img {
     margin-left:900px;
 }
 
+#cartButton {
+    float: right;
+    margin-right: 20px;
+}
+
 .menu {
     height: 60px;
     margin-bottom: 20px;

@@ -49,24 +49,26 @@ var products = {
     }
 };
 var cart = {};
+var totalPrice = 0;
 var inactiveTime = 0;  // users inactive time in seconds
 var alertTime = 300000;
 var alertUserTimerId;
 var trackInactiveTimeId;
-
 
 // Adds a given product into the cart and decrease its supply value by 1
 function addToCart(productName) {
     // reset alert timer and inactive time
     restartTimers();
 
-    if (products[productName] !== 0) {
+    if (products[productName].quantity !== 0) {
         if (cart[productName]) {
             cart[productName]++;
         } else {
             cart[productName] = 1;
         }
-        products[productName]--;
+        products[productName].quantity--;
+        totalPrice = totalPrice + products[productName].product.price;
+        updateCartButton();
     } else {
         window.alert(productName + " is sold out");
     }
@@ -83,10 +85,23 @@ function removeFromCart(productName) {
         if (cart[productName] === 0) {
             delete cart[productName];
         }
-        products[productName]++;
+        products[productName].quantity++;
+        totalPrice = totalPrice - products[productName].product.price;
+        updateCartButton();
     } else {
         window.alert("Product " + productName + " does not exist in the cart")
     }
+}
+
+function updateCartButton() {
+    var buttonNode = document.getElementById('cartButton');
+    var newNode = document.createElement('p');
+    newNode.setAttribute('id', 'cartTotal');
+    newNode.appendChild(document.createTextNode('Cart ($' + totalPrice + ')'));
+    if (document.getElementById('cartTotal')) {
+        buttonNode.removeChild(document.getElementById('cartTotal'));
+    }
+    buttonNode.appendChild(newNode);
 }
 
 // show user the current items in the cart
