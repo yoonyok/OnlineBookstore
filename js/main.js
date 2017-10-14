@@ -124,6 +124,12 @@ function updateAddRemoveButtons(productName) {
 // show user the current items in the cart
 function showCart() {
     restartTimers();
+    document.getElementById('cartModal').style.display= "block";
+
+    var node = document.getElementById('cartContent');
+    var newNode = document.createElement('p');
+    newNode.setAttribute('id', 'cartInfo');
+
     var currentCart = '';
     for (var propName in cart) {
         var propValue = cart[propName];
@@ -132,10 +138,11 @@ function showCart() {
     }
 
     if (currentCart) {
-        window.alert(currentCart);
+        newNode.appendChild(document.createTextNode(currentCart));
     } else {
-        window.alert("Your cart is empty")
+        newNode.appendChild(document.createTextNode('Your cart is empty'));
     }
+    node.appendChild(newNode);
 }
 
 function alertUser() {
@@ -166,6 +173,15 @@ function restartTimers() {
     clearInterval(alertUserTimerId);
     alertUserTimerId = setInterval(alertUser, alertTime);
     inactiveTime = 0;
+}
+
+function closeModal() {
+    document.getElementById('cartModal').style.display= "none";
+    var parent = document.getElementById('cartContent');
+    var child = document.getElementById('cartInfo');
+
+    document.getElementById("mainContent").style.opacity = "1";
+    parent.removeChild(child);
 }
 
 window.onload = startTimers;
