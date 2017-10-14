@@ -72,6 +72,7 @@ function addToCart(productName) {
     } else {
         window.alert(productName + " is sold out");
     }
+    updateAddRemoveButtons(productName);
 }
 
 // Remove the given product from cart and increase its supply value by 1
@@ -91,6 +92,7 @@ function removeFromCart(productName) {
     } else {
         window.alert("Product " + productName + " does not exist in the cart")
     }
+    updateAddRemoveButtons(productName);
 }
 
 function updateCartButton() {
