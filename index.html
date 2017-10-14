@@ -59,13 +59,16 @@
                 <div class="overlay">
                     <div class="text">$10</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('Box1')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgBox1">
+                        <p>This item is out of stock</p>
+                    </div>
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('Box1')">
+                        <button class="addButton" id="addButtonBox1" onclick="addToCart('Box1')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('Box1')">
+                        <button class="removeButton" id="removeButtonBox1" onclick="removeFromCart('Box1')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -81,13 +84,16 @@
                 <div class="overlay">
                     <div class="text">$5</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('Box2')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgBox2">
+                        <p>This item is out of stock</p>
+                    </div>
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('Box2')">
+                        <button class="addButton" id="addButtonBox2" onclick="addToCart('Box2')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('Box2')">
+                        <button class="removeButton" id="removeButtonBox2" onclick="removeFromCart('Box2')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -103,13 +109,16 @@
                 <div class="overlay">
                     <div class="text">$20</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('Clothes1')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgClothes1">
+                        <p>This item is out of stock</p>
+                    </div>
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('Clothes1')">
+                        <button class="addButton" id="addButtonClothes1" onclick="addToCart('Clothes1')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('Clothes1')">
+                        <button class="removeButton" id="removeButtonClothes1" onclick="removeFromCart('Clothes1')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -125,13 +134,16 @@
                 <div class="overlay">
                     <div class="text">$30</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('Clothes2')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgClothes2">
+                        <p>This item is out of stock</p>
+                    </div>
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('Clothes2')">
+                        <button class="addButton" id="addButtonClothes2" onclick="addToCart('Clothes2')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('Clothes2')">
+                        <button class="removeButton" id="removeButtonClothes2" onclick="removeFromCart('Clothes2')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -147,13 +159,16 @@
                 <div class="overlay">
                     <div class="text">$50</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('Jeans')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgJeans">
+                        <p>This item is out of stock</p>
+                    </div>
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('Jeans')">
+                        <button class="addButton" id="addButtonJeans" onclick="addToCart('Jeans')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('Jeans')">
+                        <button class="removeButton" id="removeButtonJeans" onclick="removeFromCart('Jeans')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -169,13 +184,16 @@
                 <div class="overlay">
                     <div class="text">$20</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('Keyboard')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgKeyboard">
+                        <p>This item is out of stock</p>
+                    </div>
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('Keyboard')">
+                        <button class="addButton" id="addButtonKeyboard" onclick="addToCart('Keyboard')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('Keyboard')">
+                        <button class="removeButton" id="removeButtonKeyboard" onclick="removeFromCart('Keyboard')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -191,13 +209,16 @@
                 <div class="overlay">
                     <div class="text">$40</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('KeyboardCombo')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgKeyboardCombo">
+                        <p>This item is out of stock</p>
+                    </div>
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('KeyboardCombo')">
+                        <button class="addButton" id="addButtonKeyboardCombo" onclick="addToCart('KeyboardCombo')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('KeyboardCombo')">
+                        <button class="removeButton" id="removeButtonKeyboardCombo" onclick="removeFromCart('KeyboardCombo')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -213,13 +234,16 @@
                 <div class="overlay">
                     <div class="text">$20</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('Mice')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgMice">
+                        <p>This item is out of stock</p>
+                    </div>
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('Mice')">
+                        <button class="addButton" id="addButtonMice" onclick="addToCart('Mice')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('Mice')">
+                        <button class="removeButton" id="removeButtonMice" onclick="removeFromCart('Mice')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -235,13 +259,16 @@
                 <div class="overlay">
                     <div class="text">$350</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('PC1')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgPC1">
+                        <p>This item is out of stock</p>
+                    </div>                    
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('PC1')">
+                        <button class="addButton" id="addButtonPC1" onclick="addToCart('PC1')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('PC1')">
+                        <button class="removeButton" id="removeButtonPC1" onclick="removeFromCart('PC1')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -257,13 +284,16 @@
                 <div class="overlay">
                     <div class="text">$400</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('PC2')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgPC2">
+                        <p>This item is out of stock</p>
+                    </div> 
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('PC2')">
+                        <button class="addButton" id="addButtonPC2" onclick="addToCart('PC2')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('PC2')">
+                        <button class="removeButton" id="removeButtonPC2" onclick="removeFromCart('PC2')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -279,13 +309,16 @@
                 <div class="overlay">
                     <div class="text">$300</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('PC3')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgPC3">
+                        <p>This item is out of stock</p>
+                    </div> 
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('PC3')">
+                        <button class="addButton" id="addButtonPC3" onclick="addToCart('PC3')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('PC3')">
+                        <button class="removeButton" id="removeButtonPC3" onclick="removeFromCart('PC3')">
                             <div class="text">Remove</div>
                         </button>
                     </div>
@@ -301,13 +334,16 @@
                 <div class="overlay">
                     <div class="text">$100</div>
                 </div>
-                <div class="overlayCart">
+                <div class="overlayCart" onmouseover="updateAddRemoveButtons('Tent')">
                     <img src="images/cart.png">
+                    <div class="message" id="outOfStockMsgTent">
+                        <p>This item is out of stock</p>
+                    </div> 
                     <div class="button">
-                        <button class="addButton" onclick="addToCart('Tent')">
+                        <button class="addButton" id="addButtonTent" onclick="addToCart('Tent')">
                             <div class="text">Add</div>
                         </button>
-                        <button class="removeButton" onclick="removeFromCart('Tent')">
+                        <button class="removeButton" id="removeButtonTent" onclick="removeFromCart('Tent')">
                             <div class="text">Remove</div>
                         </button>
                     </div>

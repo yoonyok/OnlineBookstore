@@ -104,6 +104,23 @@ function updateCartButton() {
     buttonNode.appendChild(newNode);
 }
 
+// conditionally hide or show add/remove buttons
+function updateAddRemoveButtons(productName) {
+    if (Object.keys(cart).length === 0 || cart[productName] === undefined) {
+        document.getElementById('removeButton' + productName).style.visibility="hidden";
+    } else {
+        document.getElementById('removeButton' + productName).style.visibility="visible";
+    }
+
+    if (products[productName].quantity === 0) {
+        document.getElementById('addButton' + productName).style.visibility="hidden";
+        document.getElementById('outOfStockMsg' + productName).style.visibility="visible";
+    } else {
+        document.getElementById('addButton' + productName).style.visibility="visible";
+        document.getElementById('outOfStockMsg' + productName).style.visibility="hidden";
+    }
+}
+
 // show user the current items in the cart
 function showCart() {
     restartTimers();
