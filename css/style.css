@@ -85,6 +85,7 @@ img {
     background: white;
     color : red;
     text-align: center;
+    visibility: hidden;
 }
 
 .menu {
@@ -184,6 +185,7 @@ img {
     width: 60px;
     height: 30px;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .removeButton {
@@ -196,6 +198,7 @@ img {
     width: 60px;
     height: 30px;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .imageLabel {
