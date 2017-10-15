@@ -123,6 +123,7 @@ function updateAddRemoveButtons(productName) {
     }
 }
 
+// creates a table with products in cart
 function createTable() {
     var node = document.getElementById('cartContent');
     var node2 = document.getElementById('cartInfo');
@@ -158,7 +159,7 @@ function createTable() {
             var name = propName;
             btn.addEventListener("click", function() {
                 addToCart(name);
-                updateTotal(tbl);
+                showCart();
             });
             return btn;
         }();
@@ -170,7 +171,7 @@ function createTable() {
             var name = propName;
             btn.addEventListener("click", function() {
                 removeFromCart(name);
-                updateTotal(tbl);
+                showCart();
             });
             return btn;
         }();
@@ -178,10 +179,11 @@ function createTable() {
         td3.appendChild(addButton);
         td3.appendChild(removeButton);
     }
-
     node.appendChild(tbl);
+    updateTotal();
 }
 
+// updates the total amount in pop up window
 function updateTotal() {
     if (document.getElementById('totalPrice')) {
         document.getElementById('cartInfo').removeChild(document.getElementById('totalPrice'));
@@ -204,12 +206,15 @@ function showCart() {
         if (document.getElementById('tableContent')) {
             node.removeChild(document.getElementById('tableContent'));
         }
-        newNode.appendChild(document.createTextNode('Your cart is empty'));
+        if (document.getElementById('totalPrice')) {
+            document.getElementById('cartInfo').removeChild(document.getElementById('totalPrice'));
+        }
+        document.getElementById('emptyMsg').style.visibility="visible";
         document.getElementById('checkoutButton').style.visibility="hidden";
     } else {
         // create table of product names and quantity
         createTable();
-        updateTotal();
+        document.getElementById('emptyMsg').style.visibility="hidden";
         document.getElementById('checkoutButton').style.visibility="visible";
     }
     node.appendChild(newNode);
