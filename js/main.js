@@ -123,26 +123,94 @@ function updateAddRemoveButtons(productName) {
     }
 }
 
+function createTable() {
+    var node = document.getElementById('cartContent');
+    var node2 = document.getElementById('cartInfo');
+    if (document.getElementById('tableContent')) {
+        node.removeChild(document.getElementById('tableContent'));
+    }
+    var tbl = document.createElement('table');
+    tbl.style.width='100%';
+    tbl.setAttribute('border', 1);
+    tbl.setAttribute('id', 'tableContent');
+    var tbdy = document.createElement('tbody');
+
+    var header = tbl.insertRow();
+    var nameLabel = header.insertCell();
+    var quantityLabel = header.insertCell();
+    var addOrRemoveLabel = header.insertCell();
+    nameLabel.appendChild(document.createTextNode('Product Name'));
+    quantityLabel.appendChild(document.createTextNode('Product Quantity'));
+    addOrRemoveLabel.appendChild(document.createTextNode('Add/Remove'));
+
+    for (var propName in cart) {
+        var tr = tbl.insertRow();
+        var td = tr.insertCell();
+        var td2 = tr.insertCell();
+        var td3 = tr.insertCell();
+        td.appendChild(document.createTextNode(propName));
+        td2.appendChild(document.createTextNode(cart[propName]));
+
+        var addButton = function() {
+            var btn = document.createElement("button");
+            btn.appendChild(document.createTextNode("+"));
+
+            var name = propName;
+            btn.addEventListener("click", function() {
+                addToCart(name);
+                updateTotal(tbl);
+            });
+            return btn;
+        }();
+
+        var removeButton = function() {
+            var btn = document.createElement("button");
+            btn.appendChild(document.createTextNode("-"));
+
+            var name = propName;
+            btn.addEventListener("click", function() {
+                removeFromCart(name);
+                updateTotal(tbl);
+            });
+            return btn;
+        }();
+
+        td3.appendChild(addButton);
+        td3.appendChild(removeButton);
+    }
+
+    node.appendChild(tbl);
+}
+
+function updateTotal() {
+    if (document.getElementById('totalPrice')) {
+        document.getElementById('cartInfo').removeChild(document.getElementById('totalPrice'));
+    }
+    var total = document.createElement('p');
+    total.setAttribute('id', 'totalPrice');
+    total.appendChild(document.createTextNode('Total: $' + totalPrice));
+    document.getElementById('cartInfo').appendChild(total);
+}
+
 // show user the current items in the cart
 function showCart() {
     restartTimers();
     document.getElementById('cartModal').style.display= "block";
 
     var node = document.getElementById('cartContent');
-    var newNode = document.createElement('p');
-    newNode.setAttribute('id', 'cartInfo');
+    var newNode = document.getElementById('cartInfo');
 
-    var currentCart = '';
-    for (var propName in cart) {
-        var propValue = cart[propName];
-        var string = propName + " : " + propValue + "\n";
-        currentCart += string;
-    }
-
-    if (currentCart) {
-        newNode.appendChild(document.createTextNode(currentCart));
-    } else {
+    if (Object.keys(cart).length === 0) {
+        if (document.getElementById('tableContent')) {
+            node.removeChild(document.getElementById('tableContent'));
+        }
         newNode.appendChild(document.createTextNode('Your cart is empty'));
+        document.getElementById('checkoutButton').style.visibility="hidden";
+    } else {
+        // create table of product names and quantity
+        createTable();
+        updateTotal();
+        document.getElementById('checkoutButton').style.visibility="visible";
     }
     node.appendChild(newNode);
 }
@@ -179,11 +247,7 @@ function restartTimers() {
 
 function closeModal() {
     document.getElementById('cartModal').style.display= "none";
-    var parent = document.getElementById('cartContent');
-    var child = document.getElementById('cartInfo');
-
     document.getElementById("mainContent").style.opacity = "1";
-    parent.removeChild(child);
 }
 
 window.onload = startTimers;

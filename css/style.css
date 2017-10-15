@@ -70,6 +70,17 @@ img {
     margin-right: 20px;
 }
 
+#checkoutButton {
+    position: relative;
+    background-color: green;
+    border: none;
+    color: white;
+    font-size:13px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+
 .message {
     background: white;
     color : red;
