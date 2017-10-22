@@ -4,6 +4,6 @@ var Product = function(name, price, imageUrl) {
     this.imageUrl = imageUrl;
 };
 
-Product.prototype.computerNetPrice = function(quantity) {
+Product.prototype.computeNetPrice = function(quantity) {
     return this.price* quantity;
 };
