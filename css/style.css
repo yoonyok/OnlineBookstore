@@ -55,14 +55,31 @@ img {
     height: 90px;
 }
 
-#cart {
-    background: url("../images/showCart.png") no-repeat;
-    background-size:contain;
+#cartButton {
+    float: right;
+    margin-right: 20px;
     cursor: pointer;
-    width: 90px;
-    height:70px;
-    border:none;
-    margin-left:900px;
+    background-color: black;
+    color: white;
+    font-size: 13px;
+}
+
+#checkoutButton {
+    position: relative;
+    background-color: green;
+    border: none;
+    color: white;
+    font-size:13px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.message {
+    background: white;
+    color : red;
+    text-align: center;
+    visibility: hidden;
 }
 
 .menu {
@@ -162,6 +179,7 @@ img {
     width: 60px;
     height: 30px;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .removeButton {
@@ -174,6 +192,7 @@ img {
     width: 60px;
     height: 30px;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .imageLabel {
@@ -189,7 +208,13 @@ img {
     margin-right: 40px;
     height: 140px;
 }
+
+#inactiveTime {
+    float: right;
+    font-size: 15pt;
+}
 /* ------------- */
+
 
 /* ------------- */
 /* The Modal (background) */
@@ -204,14 +229,17 @@ img {
     overflow: auto; /* Enable scroll if needed */
 }
 
+
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
     margin: 20% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 1000px rgba(0,0,0,0.7);
     width: 30%; /* Could be more or less, depending on screen size */
 }
+
 
 /* The Close Button */
 .close {
