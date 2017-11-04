@@ -48,10 +48,11 @@ var products = {
         'quantity': 5
     }
 };
+var newProducts = {};
 var cart = {};
 var totalPrice = 0;
 var inactiveTime = 0;  // users inactive time in seconds
-var alertTime = 300000;
+var alertTime = 300000; // inactive time limit for alert
 var alertUserTimerId;
 var trackInactiveTimeId;
 
@@ -255,4 +256,41 @@ function closeModal() {
     document.getElementById("mainContent").style.opacity = "1";
 }
 
-window.onload = startTimers;
+function onSuccessCallBack(response) {
+    newProducts = JSON.parse(response);
+}
+
+function onErrorCallBack(response) {
+    window.alert("error: " + response + " retrieving products");
+}
+
+function checkProducts() {
+    var oldProducts = products;
+    ajaxGet("https://cpen400a-bookstore.herokuapp.com/products", onSuccessCallBack, onErrorCallBack);
+
+    // TODO: put this in a callback
+    // Check quantity
+    var alertString = 'Updated Quantities: \n';
+    for (var key in cart) {
+        var orderedAmount = cart[key];
+        var availableUpdatedAmount = products[key].quantity;
+        if (orderedAmount > availableUpdatedAmount) {
+            cart[key] = availableUpdatedAmount;
+        }
+        alertString +=  key + ' Quantity:' + availableUpdatedAmount +'\n';
+    }
+    window.alert(alertString);
+}
+
+function addEventListeners() {
+    var checkoutButtonElement = document.getElementById('checkoutButton');
+    checkoutButtonElement.addEventListener('click', function() {
+        checkProducts();
+    })
+}
+
+window.onload = function() {
+    addEventListeners();
+    startTimers();
+    ajaxGet("https://cpen400a-bookstore.herokuapp.com/products", onSuccessCallBack, onErrorCallBack);
+};
