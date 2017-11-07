@@ -1,5 +1,5 @@
 var products = {};
-var previousProducts = {}; // used to compare with newly retrieved products
+var oldProducts = {}; // used to compare with newly retrieved products
 var cart = {};
 var totalPrice = 0;
 var inactiveTime = 0;  // users inactive time in seconds
