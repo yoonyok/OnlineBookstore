@@ -24,13 +24,13 @@ var ajaxGet = function(url, successCallback, errorCallback) {
             errorCallback(response);
         }
     };
-    xhr.timeout = 10000;
+    xhr.timeout = 3000;
     xhr.ontimeout = function() {
         console.log("retrying request due to timeout");
         retry();
     };
     xhr.onerror = function() {
-        errorCallback(xhr);
+        errorCallback(xhr.responseText);
     };
     xhr.send();
 };
