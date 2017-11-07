@@ -68,15 +68,15 @@ function updateProducts(response) {
         var oldPrice = oldProducts[key].price;
         var newPrice = products[key].price;
         if (oldPrice !== newPrice) {
-            alertString += key + ' Price: changed from  ' + oldPrice + ' to ' + newPrice +'\n';
+            alertString += key + ' Price: changed from $' + oldPrice + ' to $' + newPrice +'\n';
         }
     }
     if (alertString !== 'Update Alert: \n') {
         createTable();
-        window.alert(alertString);
         computeAndUpdateTotalPrice();
+        window.alert(alertString + '\n' + 'Your new total is $' + totalPrice);
     } else {
-        window.alert('No change in quantity and price');
+        window.confirm('No change in quantity and price, your total is $' + totalPrice);
     }
 }
 
